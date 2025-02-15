@@ -5,6 +5,7 @@ const slugify = require("slugify");
 const validateMongoDbId = require("../utils/validateMongoDbId");
 const cloudinaryUploadImg = require("../utils/cloudinary");
 const fs = require("fs");
+const { log } = require("console");
 
 // Create a new product
 const createProduct = asyncHandler(async (req, res) => {
@@ -276,15 +277,28 @@ const uploadImages = asyncHandler(async (req, res) => {
 
   try {
     const urls = [];
+
     for (const file of req.files) {
-      const newPath = await cloudinaryUploadImg(file.processedPath); // Use `processedPath`
+      const newPath = await cloudinaryUploadImg(file.path); // Use `processedPath`
       urls.push(newPath);
+
+      // Add a delay to allow cloudinary to finish processing
+      setTimeout(() => {
+        fs.unlink(file.path, (err) => {
+          if(err) {
+            console.log("Failed to delete file:", err.message);
+          } else {
+            console.log(`Deleted file: ${file.path}`);
+          }
+        });
+      },5000); // wait for 5 seconds before deleting
     }
 
     const findProduct = await Product.findByIdAndUpdate(
       id,
       {
-        images: urls.map((file) => file),
+        // images: urls.map((file) => file),
+        images: urls
       },
       { new: true }
     );
