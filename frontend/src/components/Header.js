@@ -101,26 +101,26 @@ const Header = () => {
                       aria-expanded="false"
                     >
                       <img src="images/menu.svg" alt=""/>
-                      <span>Shop Categories</span>
+                      <span className="me-5 d-inline-block">Shop Categories</span>
                     </button>
                     <ul
                       className="dropdown-menu"
                       aria-labelledby="dropdownMenuButton1"
                     >
                       <li>
-                        <a class="dropdown-item" href="#">
+                        <Link className="dropdown-item text-white" to="">
                           Action
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="#">
+                        <Link className="dropdown-item text-white" to="">
                           Another action
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="#">
+                        <Link className="dropdown-item text-white" to="">
                           Something else here
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
