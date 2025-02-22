@@ -311,8 +311,38 @@ footer .input-group-text {
 
 /* Special Product card starts here */
 .special-product-card {
-  padding: 10px;
+  padding: 20px 10px;
   border-radius: 10px;
   background-color: white;
 }
 /* Special Product card ends here */
+
+/* famous Product card starts here */
+.famous-card .famous-content {
+  top: 10%;
+  left: 10%;
+}
+.famous-card img {
+  border-radius: 10px;
+}
+.famous-content h5{
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  color: white;
+  margin-bottom: 7px;
+}
+.famous-content h4{
+  font-size: 28px;
+  line-height: 38px;
+  font-weight: 500;
+  color: white;
+}
+.famous-content p{
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 100;
+  color: white;
+}
+/* famous product card ends here */
