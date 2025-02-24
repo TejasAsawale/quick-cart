@@ -390,7 +390,6 @@ const OurStore = () => {
                       XXL (1)
                     </label>
                   </div>
-                  <div></div>
                 </div>
               </div>
               <div className="filter-card mb-3">
@@ -424,10 +423,10 @@ const OurStore = () => {
                   </div>
                 </div>
               </div>
-              <div className="filter-card mb-3">
+              <div className="filter-card mb-3 d-flex">
                 <h3 className="filter-title">Random Products</h3>
                 <div>
-                  <div className="random-products d-flex">
+                  <div className="random-products mb-3 d-flex">
                     <div className="w-50">
                       <img
                         src="images/headphone.jpg"
@@ -447,18 +446,16 @@ const OurStore = () => {
                       <b>$300.00</b>
                     </div>
                   </div>
-                </div>
-                <div>
                   <div className="random-products d-flex">
                     <div className="w-50">
                       <img
-                        src="images/headphone.jpg"
+                        src="images/watch-3.jpg"
                         className="img-fluid"
                         alt="headphone"
                       />
                     </div>
                     <div className="w-50">
-                      <h5>Kids headphones bulk 10 pack multi coloured</h5>
+                      <h5>SAMSUNG Smartwatch series 4</h5>
                       <ReactStars
                         count={5}
                         size={24}
@@ -466,14 +463,74 @@ const OurStore = () => {
                         edit={false}
                         activeColor="#ffd700"
                       />
-                      <b>$300.00</b>
+                      <b>$100.00</b>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <div className="col-9">
+              <div className="filter-sort-grid mb-4">
+                <div className="d-flex align-items-center justify-content-between">
+                  <div className="d-flex align-items-center gap-10">
+                    <p className="mb-0 d-block" style={{"width":"100px"}}>Sort By:</p>
+                    <select name="" className="form-control form-select" id="">
+                      <option value="manual">Featured</option>
+                      <option value="best-selling" selected="selected">
+                        Best Selling
+                      </option>
+                      <option value="title-ascending">
+                        Alphabetically, A-Z
+                      </option>
+                      <option value="title-descending">
+                        Alphabetically, Z-A
+                      </option>
+                      <option value="price-ascending">
+                        Price, low to high
+                      </option>
+                      <option value="price-descending">
+                        Price, high to low
+                      </option>
+                      <option value="created-ascending">
+                        Date, old to new
+                      </option>
+                      <option value="created-ddescending">
+                        Date, new to old
+                      </option>
+                    </select>
+                  </div>
+                  <div className="d-flex align-items-center gap-10">
+                    <p className="total-products mb-0">21 Products</p>
+                    <div className="d-flex align-items-center gap-10 grid">
+                      <img
+                        src="images/gr4.svg"
+                        className="d-block img-fluid"
+                        alt="grid"
+                      />
+                      <img
+                        src="images/gr3.svg"
+                        className="d-block img-fluid"
+                        alt="grid"
+                      />
+                      <img
+                        src="images/gr2.svg"
+                        className="d-block img-fluid"
+                        alt="grid"
+                      />
+                      <img
+                        src="images/gr.svg"
+                        className="d-block img-fluid"
+                        alt="grid"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="products-list pb-5">
+                
+              </div>
+            </div>
           </div>
-          <div className="col-9"></div>
         </div>
       </div>
     </>
@@ -481,4 +538,3 @@ const OurStore = () => {
 };
 
 export default OurStore;
-
