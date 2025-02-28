@@ -298,6 +298,7 @@ footer .input-group-text {
 .product-card p.description {
   font-size: 13px;
   color: var(--color-777777);
+  margin-right: 20px;
 }
 .product-card .product-details p.price {
   font-size: 16px;
@@ -446,7 +447,10 @@ footer .input-group-text {
 .gr-12 .product-card .product-image {
   width: 270px;
 }
+.gr-12 .product-card .product-image {
+  height: auto;
+}
 .gr-12 .action-bar {
-  top: 13px;
+  top: 17%;
 }
 /* Our Store Page Ends  */

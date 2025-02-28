@@ -29,7 +29,7 @@ const ProductCard = (props) => {
             edit={false}
             activeColor="#ffd700"
           />
-          <p className="description">
+          <p className={`description ${grid === 12 ? "d-block" : "d-none"}`}>
           This bulk pack of 10 kids headphones is perfect for students, featuring a variety of vibrant colors to 
           keep learning fun and engaging. Designed for comfort and durability, these lightweight headphones 
           offer clear sound, adjustable headbands, and soft
@@ -72,7 +72,7 @@ const ProductCard = (props) => {
             edit={false}
             activeColor="#ffd700"
           />
-          <p className="description">
+          <p className={`description ${grid === 12 ? "d-block" : "d-none"}`}>
           This bulk pack of 10 kids headphones is perfect for students, featuring a variety of vibrant colors to 
           keep learning fun and engaging. Designed for comfort and durability, these lightweight headphones 
           offer clear sound, adjustable headbands, and soft
