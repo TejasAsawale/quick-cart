@@ -81,7 +81,7 @@ const Home = () => {
                   <div className="small-banner-content position-absolute">
                     <h4>BEST SALE</h4>
                     <h5>Laptops Max</h5>
-                    <p>From $1699.00 or $64.62/mo.</p>
+                    <p>From $1699.00 <br/> or $64.62/mo.</p>
                   </div>
                 </div>
               </div>
