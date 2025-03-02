@@ -2,6 +2,7 @@ import React from "react";
 import BreadCrumb from "../components/BreadCrumb";
 import Meta from "../components/Meta";
 import { Link } from "react-router-dom";
+import { HiOutlineArrowLeft } from "react-icons/hi";
 
 const SingleBlog = () => {
   return (
@@ -13,7 +14,8 @@ const SingleBlog = () => {
           <div className="row">
             <div className="col-12">
               <div className="single-blog-card">
-                <Link to='/blog'>Back to Blogs</Link>
+                <Link to='/blogs' className="d-flex align-items-center gap-10">
+                <HiOutlineArrowLeft className="fs-4"/> Back to Blogs</Link>
                 <h3 className="title">
                   A Beautiful Sunday Morning Renaissance
                 </h3>
