@@ -731,3 +731,14 @@ footer .input-group-text {
   color: var(--color-1c1c1b);
 }
 /* Cart Page Ends here */
+
+/* Checkout Page starts here */
+.total {
+  font-size: 14px;
+  color: var(--color-1c1c1b);
+}
+.total-price {
+  font-size: 16px;
+  color: var(--color-777777);
+}
+/* Checkout Page ends here */
