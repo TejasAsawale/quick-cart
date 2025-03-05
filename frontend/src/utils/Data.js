@@ -1,7 +1,7 @@
 const services = [
     {
-        "image":"",
-        "title":"",
-        "tagline":"",
+        "image":"Free Shipping",
+        "title":"From all orders over $10",
+        "tagline":"images/service.png",
     },
 ]

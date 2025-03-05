@@ -93,10 +93,10 @@ const Home = () => {
             <div className="col-12">
               <div className="services d-flex align-items-center justify-content-between">
                 <div className="d-flex align-items-center gap-15">
-                  <img src="images/service.png" alt="services" />
+                  <img src="" alt="services" />
                   <div>
-                    <h6>Free Shipping</h6>
-                    <p className="mb-0">From all orders over $100</p>
+                    <h6></h6>
+                    <p className="mb-0"></p>
                   </div>
                 </div>
                 <div className="d-flex align-items-center gap-15">
