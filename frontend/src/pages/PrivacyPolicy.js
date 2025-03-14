@@ -1,14 +1,14 @@
 import React from "react";
 import BreadCrumb from "../components/BreadCrumb";
 import Meta from "../components/Meta";
+import Container from "../components/Container";
 
 const PrivacyPolicy = () => {
   return (
     <>
       <BreadCrumb title="Privacy Policy" />
       <Meta title={"Privacy Policy"} />
-      <section className="policy-wrapper py-5 home-wrapper-2">
-        <diV className="container-xxl">
+      <Container class1="policy-wrapper py-5 home-wrapper-2">
           <div className="row">
             <div className="col-12">
               <div className="policy">
@@ -47,8 +47,7 @@ const PrivacyPolicy = () => {
               </div>
             </div>
           </div>
-        </diV>
-      </section>
+      </Container>
     </>
   );
 };

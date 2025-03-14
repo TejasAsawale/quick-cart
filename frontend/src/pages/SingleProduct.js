@@ -9,6 +9,7 @@ import ReactStars from "react-rating-stars-component";
 import Color from "../components/Color";
 import { TbGitCompare } from "react-icons/tb";
 import { AiOutlineHeart } from "react-icons/ai";
+import Container from "../components/Container";
 
 const SingleProduct = () => {
   const props = {
@@ -17,6 +18,7 @@ const SingleProduct = () => {
     zoomWidth: 600,
     img: "https://images6.alphacoders.com/394/thumb-1920-394174.jpg",
   };
+  // eslint-disable-next-line no-unused-vars
   const [orderedProduct, setorderedProduct] = useState(true);
   const copyToClipboard = (text) => {
     console.log("text", text);
@@ -31,8 +33,7 @@ const SingleProduct = () => {
     <>
       <BreadCrumb title="Product Name" />
       <Meta title={"Product Name"} />
-      <div className="main-product-wrapper py-5 home-wrapper-2">
-        <div className="container-xxl">
+      <Container class1="main-product-wrapper py-5 home-wrapper-2">
           <div className="row">
             <div className="col-6">
               <div className="main-product-image">
@@ -194,10 +195,8 @@ const SingleProduct = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div className="description-wrapper py-5 home-wrapper-2">
-        <div className="container-xxl">
+        </Container>
+      <Container class1="description-wrapper py-5 home-wrapper-2">
           <div className="row">
             <div className="col-12">
               <h4>Description</h4>
@@ -212,10 +211,8 @@ const SingleProduct = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <section className="reviews-wrapper home-wrapper-2">
-        <div className="container-xxl">
+      </Container>
+      <Container class1="reviews-wrapper home-wrapper-2">
           <div className="row">
             <div className="col-12">
               <h3 id="review">Reviews</h3>
@@ -292,10 +289,8 @@ const SingleProduct = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-      <section className="popular-wrapper py-5 home-wrapper-2">
-        <div className="container-xxl">
+      </Container>
+      <Container class1="popular-wrapper py-5 home-wrapper-2">
           <div className="row">
             <div className="col-12">
               <h3 className="section-heading">Our Popular Products</h3>
@@ -304,8 +299,7 @@ const SingleProduct = () => {
           <div className="row">
             <ProductCard />
           </div>
-        </div>
-      </section>
+      </Container>
     </>
   );
 };
