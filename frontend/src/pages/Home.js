@@ -96,15 +96,15 @@ const Home = () => {
               <div className="services d-flex align-items-center justify-content-between">
                 {services?.map((i,j) => {
                     return (
-                      <div className="d-flex align-items-center gap-15" key={j}>
+                      <div className="d-flex align-items-center gap-15" key={j} >
                         <img src={i.image} alt="services"/>
-                        <idv>
+                        <div>
                           <h6>{i.title}</h6>
                           <p className="mb-0">{i.tagline}</p>
-                        </idv>
+                        </div>
                       </div>
                     )
-                  })};
+                  })}
               </div>
             </div>
           </div>

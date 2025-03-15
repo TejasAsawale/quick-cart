@@ -25,4 +25,4 @@ export const services=[
         tagline: "100% Protected Payments",
         image: "images/service-05.png",
     },
-];
+]
