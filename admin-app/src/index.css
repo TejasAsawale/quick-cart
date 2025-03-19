@@ -22,3 +22,7 @@ body{
 .ant-layout {
   min-height: 100vh;
 }
+
+main {
+  overflow-y: scroll;
+}

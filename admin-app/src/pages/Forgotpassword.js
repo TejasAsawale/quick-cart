@@ -15,7 +15,7 @@ const Forgotpassword = () => {
           please Enter your register email to get reset password mail.{" "}
         </p>
         <form action="">
-          <CustomInput type="text" placeholder="Email Address" id="email" />
+          <CustomInput type="text" label="Email Address" id="email" />
           <button
             className="border-0 px-3 py-2 text-white fw-bold w-100"
             style={{ background: "#ffd333" }}
