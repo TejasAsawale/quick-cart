@@ -5,6 +5,7 @@ import {
   MdOutlineShoppingCart,
   MdOutlineCategory,
 } from "react-icons/md";
+import { Outlet } from "react-router-dom";
 import { AiOutlineCustomerService, AiOutlineBgColors } from "react-icons/ai";
 import { TbBrandProducthunt, TbBrandSafari } from "react-icons/tb";
 import { GrCatalog } from "react-icons/gr";
@@ -25,7 +26,12 @@ const MainLayout = () => {
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical" />
+        <div className="logo">
+          <h2 className="text-white text-center fs-5 py-3 mb-0">
+            <span className="sm-logo">QC</span>
+            <span className="lg-logo">Quick-Cart</span>
+          </h2>
+        </div>
         <Menu
           theme="dark"
           mode="inline"
@@ -135,7 +141,8 @@ const MainLayout = () => {
         />
       </Sider>
       <Layout>
-        <Header
+        <Header 
+          className="d-flex justify-content-between ps-1 pe-5"
           style={{
             padding: 0,
             background: colorBgContainer,
@@ -151,6 +158,18 @@ const MainLayout = () => {
               height: 64,
             }}
           />
+          <div className="d-flex gap-3 align-items-center">
+            <div></div>
+            <div>
+              <div>
+                <img src="" alt=""/>
+              </div>
+              <div>
+                <h5>Tejas Asawale</h5>
+                <p>tejasasawale03@gmail.com</p>
+              </div>
+            </div>
+          </div>
         </Header>
         <Content
           style={{
@@ -161,7 +180,7 @@ const MainLayout = () => {
             borderRadius: borderRadiusLG,
           }}
         >
-          Content
+          <Outlet />
         </Content>
       </Layout>
     </Layout>
