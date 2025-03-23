@@ -13,7 +13,11 @@ import { BiCategory } from "react-icons/bi";
 import { RiBloggerLine } from "react-icons/ri";
 import { TbBrandAzure } from "react-icons/tb";
 import { ImBlog } from "react-icons/im";
-import { IoIosColorWand, IoIosListBox, IoIosNotifications } from "react-icons/io";
+import {
+  IoIosColorWand,
+  IoIosListBox,
+  IoIosNotifications,
+} from "react-icons/io";
 import { Button, Layout, Menu, theme } from "antd";
 import { useNavigate } from "react-router-dom";
 const { Header, Sider, Content } = Layout;
@@ -160,16 +164,19 @@ const MainLayout = () => {
           />
           <div className="d-flex gap-4 align-items-center">
             <div className="position-relative">
-              <IoIosNotifications className="fs-4"/>
-              <span className="badge bg-warning  rounded-circle p-1 position-absolute">3</span>
+              <IoIosNotifications className="fs-4" />
+              <span className="badge bg-warning  rounded-circle p-1 position-absolute">
+                3
+              </span>
             </div>
             <div className="d-flex gap-3 align-items-center">
               <div>
                 <img
                   width={32}
                   height={32}
-                  src="https://stroyka-admin.html.themeforest.scompiler.ru/variants/ltr/images/customers/customer-4-64x64.jpg" 
-                  alt="profile"/>
+                  src="https://stroyka-admin.html.themeforest.scompiler.ru/variants/ltr/images/customers/customer-4-64x64.jpg"
+                  alt="profile"
+                />
               </div>
               <div>
                 <h5 className="mb-0">Tejas Asawale</h5>
