@@ -5,7 +5,7 @@ import {
   MdOutlineShoppingCart,
   MdOutlineCategory,
 } from "react-icons/md";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { AiOutlineCustomerService, AiOutlineBgColors } from "react-icons/ai";
 import { TbBrandProducthunt, TbBrandSafari } from "react-icons/tb";
 import { GrCatalog } from "react-icons/gr";
@@ -169,7 +169,7 @@ const MainLayout = () => {
                 3
               </span>
             </div>
-            <div className="d-flex gap-3 align-items-center">
+            <div className="d-flex gap-3 align-items-center dropdown">
               <div>
                 <img
                   width={32}
@@ -178,9 +178,26 @@ const MainLayout = () => {
                   alt="profile"
                 />
               </div>
-              <div>
+              <div
+                role="button"
+                id="dropdownMenuLink"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
                 <h5 className="mb-0">Tejas Asawale</h5>
                 <p className="mb-0">tejasasawale93@gmail.com</p>
+              </div>
+              <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li>
+                  <Link className="dropdown-item py-1 mb-1" style={{"height":"auto","lineHeight":"20px"}} to="/">
+                    View Profile
+                  </Link>
+                </li>
+                <li>
+                  <Link className="dropdown-item py-1 mb-1" style={{"height":"auto","lineHeight":"20px"}} to="/">
+                    Signout
+                  </Link>
+                </li>
               </div>
             </div>
           </div>
