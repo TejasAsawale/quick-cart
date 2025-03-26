@@ -46,8 +46,9 @@ export const authSlice = createSlice ({
                         state.isLoading = false;
                         state.isError = true;
                         state.isSuccess = false;
-                        state.user = action.payload;
+                        state.user = null;
                     })
         },
     })
 
+export default authSlice.reducer;
