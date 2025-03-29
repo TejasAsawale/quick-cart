@@ -21,11 +21,11 @@ router.post('/register', createUser);
 router.post('/forgot-password-token', forgotPasswordToken);
 router.put('/reset-password/:token', resetPassword);
 
+router.put('/password', authMiddleware, updatePassword);
 router.post('/login', loginUser);
 router.get('/all-users', getallUser);
 router.get('/refresh', handleRefreshToken);
 router.get('/logout', logout);
-router.put('/password', authMiddleware, updatePassword);
 router.get('/:id', authMiddleware, isAdmin,getUser);
 router.delete('/:id', deleteUser);
 router.put('/edit-user',authMiddleware, updatedUser);

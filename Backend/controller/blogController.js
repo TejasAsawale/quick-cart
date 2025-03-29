@@ -180,7 +180,7 @@ const uploadImages = asyncHandler(async (req, res) => {
   const { id } = req.params;
   validateMongoDbId(id);
   try {
-    const uploader = (path) => cloudinaryUploadImg(path, "images");
+    const uploader = (path) => cloudinaryUploadImg(path, "blogs");
     const urls = [];
     const files = req.files;
     for (const file of files) {

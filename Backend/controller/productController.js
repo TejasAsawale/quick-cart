@@ -5,7 +5,8 @@ const slugify = require("slugify");
 const validateMongoDbId = require("../utils/validateMongoDbId");
 const cloudinaryUploadImg = require("../utils/cloudinary");
 const fs = require("fs");
-const { log } = require("console");
+const { error } = require("console");
+// const { log } = require("console");
 
 // Create a new product
 const createProduct = asyncHandler(async (req, res) => {
@@ -49,6 +50,7 @@ const deleteProduct = asyncHandler(async (req, res) => {
     const deleteProduct = await Product.findOneAndDelete({ _id: id });
     res.json(deleteProduct);
   } catch (error) {
+    console.error("Error deleting product:", error.message);
     throw new Error(error);
   }
 });
@@ -225,39 +227,94 @@ const rating = asyncHandler(async (req, res) => {
 });
 
 // upload a Images
+const uploadImages = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  validateMongoDbId(id);
+  console.log("req.files:", req.files);
+
+  try {
+    const uploader = (path) => cloudinaryUploadImg(path, "images");
+    const urls = [];
+    const files = req.files;
+
+    for (const file of files) {
+      const { path } = file;
+
+      // upload to cloudinary
+      const newPath = await uploader(path);
+      console.log(newPath);
+      urls.push(newPath);
+      // const filepath = `public/images/products/${file.filename}`;
+
+      console.log(path);
+      // delete local file after uploading
+      fs.unlinkSync(path);
+      // console.log(`Deleted local file: ${filepath}`);
+    }
+
+    // update the product with the image urls
+    const findProduct = await Product.findByIdAndUpdate(
+      id,
+      { 
+        images: urls.map((file)=> {
+          return file;
+        }),
+      },
+      { 
+        new: true,
+      }
+    );
+    // if (!findProduct) {
+    //   return res
+    //     .status(404)
+    //     .json({ message: "Product not found with the given ID" });
+    // }
+    res.json(findProduct);
+  } catch (error) {
+    console.error("Error uploading images:", error.message);
+    res.status(500).json({ message: error.message });
+  }
+});
+
 // const uploadImages = asyncHandler(async (req, res) => {
 //   const { id } = req.params;
 //   validateMongoDbId(id);
-//   console.log("req.files:", req.files);
-//   console.log("req.body:", req.body);
-
+//   console.log(req.files);
+  
+//   if (!req.files || req.files.length === 0) {
+//     return res.status(400).json({ message: "No files to upload" });
+//   }
 
 //   try {
-//     const uploader = (path) => cloudinaryUploadImg(path, "images");
 //     const urls = [];
 
 //     for (const file of req.files) {
-//       const { path } = file;
-
-//       // upload to cloudinary
-//       const newPath = await uploader(path);
+//       const newPath = await cloudinaryUploadImg(file.path); // Use `processedPath`
 //       urls.push(newPath);
 
-//       // delete local file after uploading
-//       fs.unlinkSync(path);
+//       // Add a delay to allow cloudinary to finish processing
+//       setTimeout(() => {
+//         fs.unlink(file.path, (err) => {
+//           if(err) {
+//             console.log("Failed to delete file:", err.message);
+//           } else {
+//             console.log(`Deleted file: ${file.path}`);
+//           }
+//         });
+//       },5000); // wait for 5 seconds before deleting
 //     }
 
-//     // update the product with the image urls
 //     const findProduct = await Product.findByIdAndUpdate(
 //       id,
-//       { images: urls },
+//       {
+//         // images: urls.map((file) => file),
+//         images: urls
+//       },
 //       { new: true }
 //     );
 
 //     if (!findProduct) {
-//       return res
-//         .status(404)
-//         .json({ message: "Product not found with the given ID" });
+//       return res.status(404).json({ message: "Product not found with the given ID" });
 //     }
 
 //     res.json(findProduct);
@@ -266,53 +323,6 @@ const rating = asyncHandler(async (req, res) => {
 //     res.status(500).json({ message: error.message });
 //   }
 // });
-
-const uploadImages = asyncHandler(async (req, res) => {
-  const { id } = req.params;
-  validateMongoDbId(id);
-
-  if (!req.files || req.files.length === 0) {
-    return res.status(400).json({ message: "No files to upload" });
-  }
-
-  try {
-    const urls = [];
-
-    for (const file of req.files) {
-      const newPath = await cloudinaryUploadImg(file.path); // Use `processedPath`
-      urls.push(newPath);
-
-      // Add a delay to allow cloudinary to finish processing
-      setTimeout(() => {
-        fs.unlink(file.path, (err) => {
-          if(err) {
-            console.log("Failed to delete file:", err.message);
-          } else {
-            console.log(`Deleted file: ${file.path}`);
-          }
-        });
-      },5000); // wait for 5 seconds before deleting
-    }
-
-    const findProduct = await Product.findByIdAndUpdate(
-      id,
-      {
-        // images: urls.map((file) => file),
-        images: urls
-      },
-      { new: true }
-    );
-
-    if (!findProduct) {
-      return res.status(404).json({ message: "Product not found with the given ID" });
-    }
-
-    res.json(findProduct);
-  } catch (error) {
-    console.error("Error uploading images:", error.message);
-    res.status(500).json({ message: error.message });
-  }
-});
 
 
 
